@@ -1,0 +1,39 @@
+PODS:
+  - MSAL (1.1.2):
+    - MSAL/app-lib (= 1.1.2)
+  - MSAL/app-lib (1.1.2)
+  - MSGraphClientModels (1.3.0)
+  - MSGraphClientSDK (1.0.0):
+    - MSGraphClientSDK/Authentication (= 1.0.0)
+    - MSGraphClientSDK/Common (= 1.0.0)
+  - MSGraphClientSDK/Authentication (1.0.0)
+  - MSGraphClientSDK/Common (1.0.0):
+    - MSGraphClientSDK/Authentication
+  - SwiftDataTables (0.8.1)
+  - SwiftyJSON (5.0.0)
+
+DEPENDENCIES:
+  - MSAL
+  - MSGraphClientModels
+  - MSGraphClientSDK
+  - SwiftDataTables
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - MSAL
+    - MSGraphClientModels
+    - MSGraphClientSDK
+    - SwiftDataTables
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  MSAL: d62d5af3b89f9753be6d157035629bbd851e4d15
+  MSGraphClientModels: ffef6d0a1cdaa774e1689e38da35301cb74fc72a
+  MSGraphClientSDK: ffc07a58a838e0702c7bf2a856367035d4a335d7
+  SwiftDataTables: 9e5f2ad7e7430c8008a31e66a0237ed29bf6fca8
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+
+PODFILE CHECKSUM: d308a9127bc31e275baeac5fa9f98ebe0b335ccb
+
+COCOAPODS: 1.9.1

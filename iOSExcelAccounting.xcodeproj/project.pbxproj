@@ -1,0 +1,679 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		094F376C24545A0B00242D37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F376B24545A0B00242D37 /* AppDelegate.swift */; };
+		094F376E24545A0B00242D37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F376D24545A0B00242D37 /* SceneDelegate.swift */; };
+		094F377024545A0B00242D37 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F376F24545A0B00242D37 /* SignInViewController.swift */; };
+		094F377324545A0B00242D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094F377124545A0B00242D37 /* Main.storyboard */; };
+		094F3780245460BB00242D37 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F377F245460BB00242D37 /* MainViewController.swift */; };
+		094F3784245466FD00242D37 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F3783245466FD00242D37 /* SpinnerViewController.swift */; };
+		094F3787245470AA00242D37 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F3786245470AA00242D37 /* AuthenticationManager.swift */; };
+		094F37892454731100242D37 /* AuthSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 094F37882454731100242D37 /* AuthSettings.plist */; };
+		09537A4F245B8D7A00E8BCB2 /* iOSExcelAccountingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09537A4E245B8D7A00E8BCB2 /* iOSExcelAccountingTests.swift */; };
+		095EC0DC245F5C38006EDDE8 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095EC0DB245F5C38006EDDE8 /* Protocols.swift */; };
+		095EC0E5245F8881006EDDE8 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095EC0E4245F8881006EDDE8 /* LaunchViewController.swift */; };
+		095EC0EE245F962F006EDDE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 095EC0ED245F962F006EDDE8 /* Assets.xcassets */; };
+		095EC0F1245F9918006EDDE8 /* icon_cyc_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 095EC0F0245F9918006EDDE8 /* icon_cyc_white.png */; };
+		095EC0F3245F991D006EDDE8 /* RobotVoice.wav in Resources */ = {isa = PBXBuildFile; fileRef = 095EC0F2245F991D006EDDE8 /* RobotVoice.wav */; };
+		09677329245C94BB00B291C3 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09677328245C94BB00B291C3 /* AlertManager.swift */; };
+		0967732D245CDE1900B291C3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967732C245CDE1900B291C3 /* DataManager.swift */; };
+		0967732F245CE5FA00B291C3 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967732E245CE5FA00B291C3 /* UserViewController.swift */; };
+		09677333245DF14B00B291C3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09677332245DF14A00B291C3 /* TableViewController.swift */; };
+		09992EE1245E53D700F5410A /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09992EE0245E53D700F5410A /* ArrayExtensions.swift */; };
+		09F36472245BD22D001D961E /* GraphManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F36471245BD22D001D961E /* GraphManager.swift */; };
+		09F36474245BD289001D961E /* CsvEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F36473245BD289001D961E /* CsvEditor.swift */; };
+		33D28F1B9E9FC7BC09C27CCD /* Pods_iOSExcelAccountingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD94DE4FC17DE1DE306FC5BE /* Pods_iOSExcelAccountingTests.framework */; };
+		54890A3C5127BFA1A5BA5585 /* Pods_iOSExcelAccounting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0D121E46AD1147A36415C4 /* Pods_iOSExcelAccounting.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		09537A51245B8D7A00E8BCB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 094F376024545A0B00242D37 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 094F376724545A0B00242D37;
+			remoteInfo = iOSExcelAccounting;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		094F376824545A0B00242D37 /* Accounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Accounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		094F376B24545A0B00242D37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		094F376D24545A0B00242D37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		094F376F24545A0B00242D37 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		094F377224545A0B00242D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		094F377924545A0F00242D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		094F377F245460BB00242D37 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		094F3783245466FD00242D37 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		094F378524546F0D00242D37 /* iOSExcelAccounting.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSExcelAccounting.entitlements; sourceTree = "<group>"; };
+		094F3786245470AA00242D37 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		094F37882454731100242D37 /* AuthSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AuthSettings.plist; sourceTree = "<group>"; };
+		09537A4C245B8D7A00E8BCB2 /* iOSExcelAccountingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSExcelAccountingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09537A4E245B8D7A00E8BCB2 /* iOSExcelAccountingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSExcelAccountingTests.swift; sourceTree = "<group>"; };
+		09537A50245B8D7A00E8BCB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		095EC0DB245F5C38006EDDE8 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		095EC0E4245F8881006EDDE8 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		095EC0ED245F962F006EDDE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		095EC0F0245F9918006EDDE8 /* icon_cyc_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_cyc_white.png; sourceTree = "<group>"; };
+		095EC0F2245F991D006EDDE8 /* RobotVoice.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = RobotVoice.wav; sourceTree = "<group>"; };
+		0964D09224564327005537B4 /* iOSExcelAccounting-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSExcelAccounting-Bridging-Header.h"; sourceTree = "<group>"; };
+		09677328245C94BB00B291C3 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		0967732C245CDE1900B291C3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		0967732E245CE5FA00B291C3 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		09677332245DF14A00B291C3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		09992EE0245E53D700F5410A /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		09F36471245BD22D001D961E /* GraphManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphManager.swift; sourceTree = "<group>"; };
+		09F36473245BD289001D961E /* CsvEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CsvEditor.swift; path = MyPlayground.playground/Sources/CsvEditor.swift; sourceTree = "<group>"; };
+		677364A464E8BA07A9F2FA16 /* Pods-iOSExcelAccountingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSExcelAccountingTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSExcelAccountingTests/Pods-iOSExcelAccountingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C4D23C6FEA471C6583FF53AD /* Pods-iOSExcelAccounting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSExcelAccounting.debug.xcconfig"; path = "Target Support Files/Pods-iOSExcelAccounting/Pods-iOSExcelAccounting.debug.xcconfig"; sourceTree = "<group>"; };
+		C6355BC74EA682AF26101E68 /* libPods-iOSExcelAccountingUnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSExcelAccountingUnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD94DE4FC17DE1DE306FC5BE /* Pods_iOSExcelAccountingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSExcelAccountingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4D58393B5F0D3ACBE005EE5 /* Pods-iOSExcelAccounting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSExcelAccounting.release.xcconfig"; path = "Target Support Files/Pods-iOSExcelAccounting/Pods-iOSExcelAccounting.release.xcconfig"; sourceTree = "<group>"; };
+		E6771B3E7B8B96ECA4A71752 /* Pods-iOSExcelAccountingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSExcelAccountingTests.release.xcconfig"; path = "Target Support Files/Pods-iOSExcelAccountingTests/Pods-iOSExcelAccountingTests.release.xcconfig"; sourceTree = "<group>"; };
+		EE0D121E46AD1147A36415C4 /* Pods_iOSExcelAccounting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSExcelAccounting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		094F376524545A0B00242D37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54890A3C5127BFA1A5BA5585 /* Pods_iOSExcelAccounting.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09537A49245B8D7A00E8BCB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33D28F1B9E9FC7BC09C27CCD /* Pods_iOSExcelAccountingTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		094F375F24545A0B00242D37 = {
+			isa = PBXGroup;
+			children = (
+				094F376A24545A0B00242D37 /* iOSExcelAccounting */,
+				09537A4D245B8D7A00E8BCB2 /* iOSExcelAccountingTests */,
+				094F376924545A0B00242D37 /* Products */,
+				94DC59712FFEADDA513F0097 /* Pods */,
+				1740D10F35B4BBD84415F98D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		094F376924545A0B00242D37 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				094F376824545A0B00242D37 /* Accounter.app */,
+				09537A4C245B8D7A00E8BCB2 /* iOSExcelAccountingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		094F376A24545A0B00242D37 /* iOSExcelAccounting */ = {
+			isa = PBXGroup;
+			children = (
+				095EC0EF245F98F8006EDDE8 /* Resources */,
+				0967732B245CDA2600B291C3 /* Others */,
+				09677328245C94BB00B291C3 /* AlertManager.swift */,
+				09677332245DF14A00B291C3 /* TableViewController.swift */,
+				094F377F245460BB00242D37 /* MainViewController.swift */,
+				0967732C245CDE1900B291C3 /* DataManager.swift */,
+				09F36471245BD22D001D961E /* GraphManager.swift */,
+				09F36473245BD289001D961E /* CsvEditor.swift */,
+				094F376F24545A0B00242D37 /* SignInViewController.swift */,
+				094F3783245466FD00242D37 /* SpinnerViewController.swift */,
+				09992EE0245E53D700F5410A /* ArrayExtensions.swift */,
+				094F377124545A0B00242D37 /* Main.storyboard */,
+				095EC0E4245F8881006EDDE8 /* LaunchViewController.swift */,
+				0967732E245CE5FA00B291C3 /* UserViewController.swift */,
+				095EC0DB245F5C38006EDDE8 /* Protocols.swift */,
+			);
+			path = iOSExcelAccounting;
+			sourceTree = "<group>";
+		};
+		09537A4D245B8D7A00E8BCB2 /* iOSExcelAccountingTests */ = {
+			isa = PBXGroup;
+			children = (
+				09537A4E245B8D7A00E8BCB2 /* iOSExcelAccountingTests.swift */,
+				09537A50245B8D7A00E8BCB2 /* Info.plist */,
+			);
+			path = iOSExcelAccountingTests;
+			sourceTree = "<group>";
+		};
+		095EC0EF245F98F8006EDDE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				095EC0F0245F9918006EDDE8 /* icon_cyc_white.png */,
+				095EC0F2245F991D006EDDE8 /* RobotVoice.wav */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0967732B245CDA2600B291C3 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				095EC0ED245F962F006EDDE8 /* Assets.xcassets */,
+				094F378524546F0D00242D37 /* iOSExcelAccounting.entitlements */,
+				0964D09224564327005537B4 /* iOSExcelAccounting-Bridging-Header.h */,
+				094F37882454731100242D37 /* AuthSettings.plist */,
+				094F377924545A0F00242D37 /* Info.plist */,
+				094F376D24545A0B00242D37 /* SceneDelegate.swift */,
+				094F376B24545A0B00242D37 /* AppDelegate.swift */,
+				094F3786245470AA00242D37 /* AuthenticationManager.swift */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		1740D10F35B4BBD84415F98D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6355BC74EA682AF26101E68 /* libPods-iOSExcelAccountingUnitTests.a */,
+				EE0D121E46AD1147A36415C4 /* Pods_iOSExcelAccounting.framework */,
+				CD94DE4FC17DE1DE306FC5BE /* Pods_iOSExcelAccountingTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94DC59712FFEADDA513F0097 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4D23C6FEA471C6583FF53AD /* Pods-iOSExcelAccounting.debug.xcconfig */,
+				E4D58393B5F0D3ACBE005EE5 /* Pods-iOSExcelAccounting.release.xcconfig */,
+				677364A464E8BA07A9F2FA16 /* Pods-iOSExcelAccountingTests.debug.xcconfig */,
+				E6771B3E7B8B96ECA4A71752 /* Pods-iOSExcelAccountingTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		094F376724545A0B00242D37 /* iOSExcelAccounting */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 094F377C24545A0F00242D37 /* Build configuration list for PBXNativeTarget "iOSExcelAccounting" */;
+			buildPhases = (
+				387C977FEFFFC7E27FE34C85 /* [CP] Check Pods Manifest.lock */,
+				094F376424545A0B00242D37 /* Sources */,
+				094F376524545A0B00242D37 /* Frameworks */,
+				094F376624545A0B00242D37 /* Resources */,
+				EB2694711768B1A8659CDEAD /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSExcelAccounting;
+			productName = iOSExcelAccounting;
+			productReference = 094F376824545A0B00242D37 /* Accounter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		09537A4B245B8D7A00E8BCB2 /* iOSExcelAccountingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09537A53245B8D7A00E8BCB2 /* Build configuration list for PBXNativeTarget "iOSExcelAccountingTests" */;
+			buildPhases = (
+				514521B10F837B84903398A5 /* [CP] Check Pods Manifest.lock */,
+				09537A48245B8D7A00E8BCB2 /* Sources */,
+				09537A49245B8D7A00E8BCB2 /* Frameworks */,
+				09537A4A245B8D7A00E8BCB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09537A52245B8D7A00E8BCB2 /* PBXTargetDependency */,
+			);
+			name = iOSExcelAccountingTests;
+			productName = iOSExcelAccountingTests;
+			productReference = 09537A4C245B8D7A00E8BCB2 /* iOSExcelAccountingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		094F376024545A0B00242D37 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = cyc;
+				TargetAttributes = {
+					094F376724545A0B00242D37 = {
+						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
+					};
+					09537A4B245B8D7A00E8BCB2 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 094F376724545A0B00242D37;
+					};
+				};
+			};
+			buildConfigurationList = 094F376324545A0B00242D37 /* Build configuration list for PBXProject "iOSExcelAccounting" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 094F375F24545A0B00242D37;
+			productRefGroup = 094F376924545A0B00242D37 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				094F376724545A0B00242D37 /* iOSExcelAccounting */,
+				09537A4B245B8D7A00E8BCB2 /* iOSExcelAccountingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		094F376624545A0B00242D37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				094F377324545A0B00242D37 /* Main.storyboard in Resources */,
+				095EC0F3245F991D006EDDE8 /* RobotVoice.wav in Resources */,
+				095EC0F1245F9918006EDDE8 /* icon_cyc_white.png in Resources */,
+				095EC0EE245F962F006EDDE8 /* Assets.xcassets in Resources */,
+				094F37892454731100242D37 /* AuthSettings.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09537A4A245B8D7A00E8BCB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		387C977FEFFFC7E27FE34C85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSExcelAccounting-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		514521B10F837B84903398A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSExcelAccountingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB2694711768B1A8659CDEAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSExcelAccounting/Pods-iOSExcelAccounting-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSExcelAccounting/Pods-iOSExcelAccounting-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSExcelAccounting/Pods-iOSExcelAccounting-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		094F376424545A0B00242D37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09992EE1245E53D700F5410A /* ArrayExtensions.swift in Sources */,
+				095EC0E5245F8881006EDDE8 /* LaunchViewController.swift in Sources */,
+				094F377024545A0B00242D37 /* SignInViewController.swift in Sources */,
+				0967732D245CDE1900B291C3 /* DataManager.swift in Sources */,
+				09677329245C94BB00B291C3 /* AlertManager.swift in Sources */,
+				0967732F245CE5FA00B291C3 /* UserViewController.swift in Sources */,
+				094F3787245470AA00242D37 /* AuthenticationManager.swift in Sources */,
+				09F36472245BD22D001D961E /* GraphManager.swift in Sources */,
+				094F3780245460BB00242D37 /* MainViewController.swift in Sources */,
+				09677333245DF14B00B291C3 /* TableViewController.swift in Sources */,
+				095EC0DC245F5C38006EDDE8 /* Protocols.swift in Sources */,
+				094F376C24545A0B00242D37 /* AppDelegate.swift in Sources */,
+				094F3784245466FD00242D37 /* SpinnerViewController.swift in Sources */,
+				094F376E24545A0B00242D37 /* SceneDelegate.swift in Sources */,
+				09F36474245BD289001D961E /* CsvEditor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09537A48245B8D7A00E8BCB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09537A4F245B8D7A00E8BCB2 /* iOSExcelAccountingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		09537A52245B8D7A00E8BCB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 094F376724545A0B00242D37 /* iOSExcelAccounting */;
+			targetProxy = 09537A51245B8D7A00E8BCB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		094F377124545A0B00242D37 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				094F377224545A0B00242D37 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		094F377A24545A0F00242D37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		094F377B24545A0F00242D37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		094F377D24545A0F00242D37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4D23C6FEA471C6583FF53AD /* Pods-iOSExcelAccounting.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = iOSExcelAccounting/iOSExcelAccounting.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BZ736582J6;
+				INFOPLIST_FILE = iOSExcelAccounting/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"z\"",
+					"-framework",
+					"\"MSAL\"",
+					"-framework",
+					"\"MSGraphClientModels\"",
+					"-framework",
+					"\"MSGraphClientSDK\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyc.iOSExcelAccounting;
+				PRODUCT_NAME = Accounter;
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSExcelAccounting/iOSExcelAccounting-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		094F377E24545A0F00242D37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4D58393B5F0D3ACBE005EE5 /* Pods-iOSExcelAccounting.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = iOSExcelAccounting/iOSExcelAccounting.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BZ736582J6;
+				INFOPLIST_FILE = iOSExcelAccounting/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"z\"",
+					"-framework",
+					"\"MSAL\"",
+					"-framework",
+					"\"MSGraphClientModels\"",
+					"-framework",
+					"\"MSGraphClientSDK\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyc.iOSExcelAccounting;
+				PRODUCT_NAME = Accounter;
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSExcelAccounting/iOSExcelAccounting-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		09537A54245B8D7A00E8BCB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 677364A464E8BA07A9F2FA16 /* Pods-iOSExcelAccountingTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BZ736582J6;
+				INFOPLIST_FILE = iOSExcelAccountingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyc.iOSExcelAccountingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSExcelAccounting.app/iOSExcelAccounting";
+			};
+			name = Debug;
+		};
+		09537A55245B8D7A00E8BCB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6771B3E7B8B96ECA4A71752 /* Pods-iOSExcelAccountingTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BZ736582J6;
+				INFOPLIST_FILE = iOSExcelAccountingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyc.iOSExcelAccountingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSExcelAccounting.app/iOSExcelAccounting";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		094F376324545A0B00242D37 /* Build configuration list for PBXProject "iOSExcelAccounting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				094F377A24545A0F00242D37 /* Debug */,
+				094F377B24545A0F00242D37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		094F377C24545A0F00242D37 /* Build configuration list for PBXNativeTarget "iOSExcelAccounting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				094F377D24545A0F00242D37 /* Debug */,
+				094F377E24545A0F00242D37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09537A53245B8D7A00E8BCB2 /* Build configuration list for PBXNativeTarget "iOSExcelAccountingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09537A54245B8D7A00E8BCB2 /* Debug */,
+				09537A55245B8D7A00E8BCB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 094F376024545A0B00242D37 /* Project object */;
+}
