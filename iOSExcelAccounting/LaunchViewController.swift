@@ -15,6 +15,7 @@ class LaunchViewController: UIViewController {
     @IBOutlet weak var cycText: UILabel!
     /// **must** define instance variable outside, because .play() will deallocate AVAudioPlayer immediately and you won't hear a thing
     var player: AVAudioPlayer?
+    var isSkipped: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,9 @@ class LaunchViewController: UIViewController {
             self.cycLogo.alpha = 1
             self.cycText.alpha = 1
         }) { (finished) in
-            self.performSegue(withIdentifier: "launched", sender: self)
+            if !self.isSkipped{
+                self.performSegue(withIdentifier: "launched", sender: self)
+            }
         }
         guard let url = Bundle.main.url(forResource: "RobotVoice", withExtension: "wav") else {
             print("Cannot find RobotVoice.wav!")
@@ -49,7 +52,13 @@ class LaunchViewController: UIViewController {
         
     }
     
-
+    /// skip to the first page when user taps
+    @IBAction func userTaps(_ sender: Any) {
+        isSkipped = true
+        player?.stop()
+        self.performSegue(withIdentifier: "launched", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -30,6 +30,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="YzR-bK-Sas" firstAttribute="centerX" secondItem="N5P-us-MCf" secondAttribute="centerX" id="EK0-zy-FK5"/>
                             <constraint firstItem="YzR-bK-Sas" firstAttribute="width" secondItem="YzR-bK-Sas" secondAttribute="height" multiplier="143:128" id="Wh3-KU-3g9"/>
@@ -38,6 +39,9 @@
                             <constraint firstItem="lh0-TA-DpE" firstAttribute="centerX" secondItem="N5P-us-MCf" secondAttribute="centerX" id="vL4-Wr-G4i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jER-oP-mGz"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="SUG-2q-3lJ" appends="YES" id="s2F-18-MWo"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="cycLogo" destination="YzR-bK-Sas" id="yEy-ID-BW7"/>
@@ -46,6 +50,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxP-FE-EC4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="SUG-2q-3lJ">
+                    <connections>
+                        <action selector="userTaps:" destination="MYb-8l-3aV" id="ath-kY-HUm"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1740" y="111"/>
         </scene>
@@ -396,7 +405,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="q2g-qM-PTZ"/>
+        <segue reference="hKK-gh-uu1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="DefaultUserPhoto" width="225" height="225"/>
