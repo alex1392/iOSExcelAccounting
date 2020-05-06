@@ -128,7 +128,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="tdA-fs-Ukd"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                                                 <connections>
                                                     <action selector="amountEditStart:" destination="Bum-Da-zK2" eventType="editingDidBegin" id="mWa-2n-U6F"/>
                                                 </connections>
@@ -283,7 +283,7 @@
             <objects>
                 <viewController id="6gu-mJ-slO" customClass="TableViewController" customModule="Accounter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gEZ-Z2-MXL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="KoY-8J-rwq"/>
@@ -405,7 +405,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hKK-gh-uu1"/>
+        <segue reference="q2g-qM-PTZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="DefaultUserPhoto" width="225" height="225"/>
