@@ -92,6 +92,7 @@ public class CsvEditor{
             return output
         }
         
-        content = table.map{$0.joined(separator: ",")}.joined(separator: "\r\n")
+        content = "\u{feff}" + table.map{$0.joined(separator: ",")}.joined(separator: "\r\n")
+        
     }
 }

@@ -10,11 +10,6 @@ target 'iOSExcelAccounting' do
   pod 'SwiftyJSON'
   pod 'SwiftDataTables'
 
-  target 'iOSExcelAccountingTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
 
 
