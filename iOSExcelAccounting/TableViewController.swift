@@ -32,11 +32,11 @@ class TableViewController: UIViewController, ViewControllerWithSpinner, SwiftDat
         for (index,data) in DataManager.uploadedData.enumerated(){
 //            let row = [id,date,amount, balance,category,shop,comment,cost,comsumeCategory]
             /// CHECK with the file
-            let message = "[📅\(data[1]),🏷\(data[4]),🏠\(data[5]),￡\(data[2]),💬\(data[6])]"
-
+//            let message = "[📅\(data[1]),🏷\(data[4]),🏠\(data[5]),￡\(data[2]),💬\(data[6])]"
+            let message = "ID: \(data[0])"
             alert.addAction(UIAlertAction(title: message, style: .default) { (action) in
                 let id = data[0]
-                AlertManager.showWithOkCancel(controller: self, title: "確定要刪除嗎？", message: "") {
+                AlertManager.showWithOkCancelDestructive(controller: self, title: "確定要刪除嗎？", message: "") {
                     (action) in
                     DataManager.csvTable.table.removeAll { $0[0] == id }
                     DataManager.uploadTable(controller: self) {
