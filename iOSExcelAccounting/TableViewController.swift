@@ -15,16 +15,25 @@ class TableViewController: UIViewController, ViewControllerWithSpinner, SwiftDat
     private var formattedData : [[String]] = []
     lazy var dataTable : SwiftDataTable = makeDataTable()
     @IBOutlet weak var DeleteButton: UIBarButtonItem!
+    @IBOutlet weak var NavigationBar: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         automaticallyAdjustsScrollViewInsets = false
         view.addSubview(dataTable)
-        getFormattedData()
-        dataTable.reload()
-        addConstraint()
-        DeleteButton.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)], for: .normal)
+        
+        DataManager.getTable(controller: self) { (error) in
+            // if cannot fetch data, return to main page
+            guard error == nil else{
+                self.navigationController?.popViewController(animated: true)
+                return
+            }
+            self.getFormattedData()
+            self.dataTable.reload()
+            self.addConstraint()
+            self.DeleteButton.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)], for: .normal)
+        }
     }
 
     @IBAction func deleteData(_ sender: Any) {
@@ -38,12 +47,16 @@ class TableViewController: UIViewController, ViewControllerWithSpinner, SwiftDat
                 let id = data[0]
                 AlertManager.showWithOkCancelDestructive(controller: self, title: "確定要刪除嗎？", message: "") {
                     (action) in
-                    DataManager.csvTable.table.removeAll { $0[0] == id }
-                    DataManager.uploadTable(controller: self) {
-                        DataManager.uploadedData.remove(at: index)
-                        self.getFormattedData()
-                        self.dataTable.reload()
-                        AlertManager.showWithOK(controller: self, title: "已刪除資料", message: message)
+                    // get the latest table
+                    DataManager.getTable(controller: self) { (error) in
+                        guard error == nil else { return }
+                        DataManager.csvTable.table.removeAll { $0[0] == id }
+                        DataManager.uploadTable(controller: self) {
+                            DataManager.uploadedData.remove(at: index)
+                            self.getFormattedData()
+                            self.dataTable.reload()
+                            AlertManager.showWithOK(controller: self, title: "已刪除資料", message: message)
+                        }
                     }
                 }
             })
