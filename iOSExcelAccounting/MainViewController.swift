@@ -116,82 +116,88 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     @IBAction func upload(_ sender: Any) {
-        // get user inputs
-        /// CHECK with the file
-        guard let id_index = DataManager.headers.firstIndex(of: "ID") else {
-            AlertManager.showWithOK(controller: self, title: "記帳表CSV文件ID無法解析", message: "請檢查記帳表ID欄位標題是否存在")
-            return
-        }
-        guard let id_last = Int(DataManager.csvTable.table[0][id_index].trimmingCharacters(in: .whitespacesAndNewlines)) else {
-            AlertManager.showWithOK(controller: self, title: "記帳表CSV文件ID無法解析", message: "請檢查記帳表ID欄位數字格式正確")
-            return
-        }
-        let id = String(format: "%03d", id_last+1)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        let date = dateFormatter.string(from: datePicker.date)
-        let category = DataManager.categories[dataPicker.selectedRow(inComponent: 0)]
-        let comsumeCategory = DataManager.comsumeCategories[dataPicker.selectedRow(inComponent: 0)]
-        let shop = DataManager.shops[dataPicker.selectedRow(inComponent: 1)]
-        guard let amount_text = amountText.text, !amount_text.isEmpty else {
+        // check user input
+        guard let amount_text = self.amountText.text, !amount_text.isEmpty else {
             AlertManager.showWithCustom(controller: self, title: "別忘記輸入金額哦，豬頭嬛～～～😜", message: "豬頭就是豬頭😂", actionTitle: "Me八嘎🤣🤣🤣")
             return
         }
-        guard let amount_double = Double((negativeButton.isSelected ? "-" : "") + amount_text) else {
+        guard let amount_double = Double((self.negativeButton.isSelected ? "-" : "") + amount_text) else {
             AlertManager.showWithOK(controller: self, title: "輸入金額格式錯誤", message: "請在金額欄僅輸入正確的數字格式")
             return
         }
-        let amount = String(format: "%.2f", amount_double)
-        let cost = String(format: "%.2f", -amount_double)
-        /// CHECK with the file
-        guard let balance_index = DataManager.headers.firstIndex(of: "餘額") else {
-            AlertManager.showWithOK(controller: self, title: "記帳表CSV文件餘額無法解析", message: "請檢查記帳表餘額欄位標題是否存在")
-            return
-        }
-        guard let balance_last = Double(DataManager.csvTable.table[0][balance_index].trimmingCharacters(in: .whitespaces).trimmingCharacters(in: CharacterSet(charactersIn: "£"))) else{
-            AlertManager.showWithOK(controller: self, title: "記帳表CSV文件餘額無法解析", message: "請檢查記帳表餘額欄位數字格式正確")
-            return
-        }
-        let balance = String(format: "%.2f", balance_last + amount_double)
-        let comment = commentText.text ?? ""
         
-        // show alert to let user check again
-        let row = [id,date,amount, balance,category,shop,comment,cost,comsumeCategory] /// CHECK with the file
-        let alert = UIAlertController(title: "確認輸入", message: "", preferredStyle: .alert)
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = NSTextAlignment.left
-        let messageText = NSAttributedString(
-            string: "📅：\(date)\r\n" +
-            "🏷：\(category)\r\n" +
-            "🏠：\(shop)\r\n" +
-            "£：\(amount)\r\n" +
-            "💬：\(comment)\r\n",
-            attributes: [
-                NSAttributedString.Key.paragraphStyle: paragraphStyle,
-            ]
-        )
-        alert.setValue(messageText, forKey: "attributedMessage")
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            // insert new row
-            DataManager.csvTable.table.insert(row, at: 0)
-            DataManager.uploadTable(controller: self) {
-                DataManager.uploadedData.append(row)
-                self.amountText.text = ""
-                AlertManager.showWithOK(controller: self, title: "登錄成功！", message: "會記帳的小環環最棒了😍")
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy/MM/dd"
+            let date = dateFormatter.string(from: self.datePicker.date)
+            let category = DataManager.categories[self.dataPicker.selectedRow(inComponent: 0)]
+            let comsumeCategory = DataManager.comsumeCategories[self.dataPicker.selectedRow(inComponent: 0)]
+            let shop = DataManager.shops[self.dataPicker.selectedRow(inComponent: 1)]
+            
+            let amount = String(format: "%.2f", amount_double)
+            let cost = String(format: "%.2f", -amount_double)
+            /// CHECK with the file
+            guard let balance_index = DataManager.headers.firstIndex(of: "餘額") else {
+                AlertManager.showWithOK(controller: self, title: "記帳表CSV文件餘額無法解析", message: "請檢查記帳表餘額欄位標題是否存在")
+                return
             }
-        }))
-        self.present(alert, animated: true, completion: nil)
+            guard let balance_last = Double(DataManager.csvTable.table[0][balance_index].trimmingCharacters(in: .whitespaces).trimmingCharacters(in: CharacterSet(charactersIn: "£"))) else{
+                AlertManager.showWithOK(controller: self, title: "記帳表CSV文件餘額無法解析", message: "請檢查記帳表餘額欄位數字格式正確")
+                return
+            }
+            let balance = String(format: "%.2f", balance_last + amount_double)
+            let comment = self.commentText.text ?? ""
+            
+            // show alert to let user check again
+            let data = [date,amount, balance,category,shop,comment,cost,comsumeCategory] /// CHECK with the file
+            let alert = UIAlertController(title: "確認輸入", message: "", preferredStyle: .alert)
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = NSTextAlignment.left
+            let messageText = NSAttributedString(
+                string: "📅：\(date)\r\n" +
+                "🏷：\(category)\r\n" +
+                "🏠：\(shop)\r\n" +
+                "£：\(amount)\r\n" +
+                "💬：\(comment)\r\n",
+                attributes: [
+                    NSAttributedString.Key.paragraphStyle: paragraphStyle,
+                ]
+            )
+            alert.setValue(messageText, forKey: "attributedMessage")
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                // get table
+                DataManager.getTable(controller: self) { (error) in
+                    // if not successful, return
+                    guard error == nil else { return }
+                    // TODO: lock the file?
+                    // get user inputs
+                    guard let id_index = DataManager.headers.firstIndex(of: "ID") else {
+                        AlertManager.showWithOK(controller: self, title: "記帳表CSV文件ID無法解析", message: "請檢查記帳表ID欄位標題是否存在")
+                        return
+                    }
+                    guard let id_last = Int(DataManager.csvTable.table[0][id_index].trimmingCharacters(in: .whitespacesAndNewlines)) else {
+                        AlertManager.showWithOK(controller: self, title: "記帳表CSV文件ID無法解析", message: "請檢查記帳表ID欄位數字格式正確")
+                        return
+                    }
+                    let id = String(format: "%03d", id_last+1)
+                    // insert new row
+                    let row = [id] + data
+                    DataManager.csvTable.table.insert(row, at: 0)
+                    DataManager.uploadTable(controller: self) {
+                        DataManager.uploadedData.append(row)
+                        self.amountText.text = ""
+                        AlertManager.showWithOK(controller: self, title: "登錄成功！", message: "會記帳的小環環最棒了😍")
+                    }
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+        
     }
     
     
     @IBAction func signOut() {
        AuthenticationManager.instance.signOut()
        self.performSegue(withIdentifier: "userSignedOut", sender: self)
-    }
-
-    @IBAction func deleteData(_ sender: Any) {
-        
     }
     
 }
