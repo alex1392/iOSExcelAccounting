@@ -27,7 +27,7 @@ public class DataManager {
     public static var headers : [String] = []
     public static var uploadedData : [[String]] = []
 
-    public static func getData(controller: ViewControllerWithSpinner, completion: @escaping(Error?) -> Void) {
+    public static func getList(controller: ViewControllerWithSpinner, completion: @escaping(Error?) -> Void) {
         controller.spinner.start(container: controller) // start spinner
         // Search for the excel file
         GraphManager.instance.searchDrive(query: "Alex", selects: [.id, .name, .downloadUrl], completion: {
@@ -40,18 +40,10 @@ public class DataManager {
             }
             // get the url strings
             let UrlString_csvList = json["value"].arrayValue.first{ $0["name"].stringValue.contains("清單.csv") }?[GraphManager.selectType.downloadUrl.rawValue].stringValue ?? ""
-            let UrlString_csvTable = json["value"].arrayValue.first{ $0["name"].stringValue.contains("記帳表.csv") }?[GraphManager.selectType.downloadUrl.rawValue].stringValue ?? ""
-            csvTableID = json["value"].arrayValue.first{ $0["name"].stringValue.contains("記帳表.csv") }?[GraphManager.selectType.id.rawValue].stringValue ?? ""
             guard let url_csvList = URL(string: UrlString_csvList) else {
                 AlertManager.showWithOK(controller: controller, title: "無法取得清單", message: "請檢查OneDrive中的清單是否存在")
                 controller.spinner.stop()
                 completion(self.error.FetchListFailed)
-                return
-            }
-            guard let url_csvTable = URL(string: UrlString_csvTable) else {
-                AlertManager.showWithOK(controller: controller, title: "無法取得記帳表", message: "請檢查OneDrive中的記帳表是否存在")
-                controller.spinner.stop()
-                completion(self.error.FetchTableFailed)
                 return
             }
             // Parse the csv file
@@ -61,15 +53,8 @@ public class DataManager {
                 completion(self.error.ParseListFailed)
                 return
             }
-            guard let _ = try? csvTable.parse(fileUrl: url_csvTable) else {
-                AlertManager.showWithOK(controller: controller, title: "解析記帳表出錯", message: "請檢查記帳表格式是否符合csv格式，且檔案編碼是否為UTF-8或Big-5")
-                controller.spinner.stop()
-                completion(self.error.ParseTableFailed)
-                return
-            }
-            
+
             // Get Comsumable List
-            headers = csvTable.table.removeFirst()
             csvList.table.removeFirst()
             shops = csvList.getColumns(i: 0).filter{!$0.isEmpty}
             categories = csvList.getColumns(i: 1).filter{!$0.isEmpty}
@@ -79,6 +64,42 @@ public class DataManager {
             completion(nil)
         })
     }
+    
+    public static func getTable(controller: ViewControllerWithSpinner, completion: @escaping(Error?) -> Void) {
+            controller.spinner.start(container: controller) // start spinner
+            // Search for the excel file
+            GraphManager.instance.searchDrive(query: "Alex", selects: [.id, .name, .downloadUrl], completion: {
+                (json, error) in
+                guard let json = json, error == nil else {
+                    AlertManager.showWithOK(controller: controller, title: "搜尋OneDrive時出錯", message: "錯誤訊息: \(error.debugDescription)")
+                    controller.spinner.stop()
+                    completion(error)
+                    return
+                }
+                // get the url strings
+                let UrlString_csvTable = json["value"].arrayValue.first{ $0["name"].stringValue.contains("記帳表.csv") }?[GraphManager.selectType.downloadUrl.rawValue].stringValue ?? ""
+                // save TableID for later usage (when updating the table)
+                csvTableID = json["value"].arrayValue.first{ $0["name"].stringValue.contains("記帳表.csv") }?[GraphManager.selectType.id.rawValue].stringValue ?? ""
+                guard let url_csvTable = URL(string: UrlString_csvTable) else {
+                    AlertManager.showWithOK(controller: controller, title: "無法取得記帳表", message: "請檢查OneDrive中的記帳表是否存在")
+                    controller.spinner.stop()
+                    completion(self.error.FetchTableFailed)
+                    return
+                }
+                // Parse the csv file
+                guard let _ = try? csvTable.parse(fileUrl: url_csvTable) else {
+                    AlertManager.showWithOK(controller: controller, title: "解析記帳表出錯", message: "請檢查記帳表格式是否符合csv格式，且檔案編碼是否為UTF-8或Big-5")
+                    controller.spinner.stop()
+                    completion(self.error.ParseTableFailed)
+                    return
+                }
+                // get headers
+                headers = csvTable.table.removeFirst()
+
+                controller.spinner.stop()
+                completion(nil)
+            })
+        }
     
     public static func uploadTable(controller: ViewControllerWithSpinner, completion: @escaping() -> Void = {}){
         csvTable.table.insert(DataManager.headers, at: 0) //temperary add header back

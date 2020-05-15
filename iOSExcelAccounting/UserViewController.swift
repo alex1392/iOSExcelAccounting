@@ -27,9 +27,10 @@ class UserViewController: UIViewController, ViewControllerWithSpinner {
     }
     
     @IBAction func connect(_ sender: Any) {
-        DataManager.getData(controller: self) { (error) in
+        DataManager.getList(controller: self) { (error) in
             guard error == nil else {
                 // if not successful, just stay here
+                // display user information
                 GraphManager.instance.getMe { (user, error) in
                     guard let user = user, error == nil else {
                         AlertManager.showWithOK(controller: self, title: "使用者資訊擷取失敗", message: "錯誤訊息： \(error.debugDescription)")
