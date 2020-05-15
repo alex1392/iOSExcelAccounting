@@ -12,6 +12,14 @@ import Foundation
 public class AlertManager{
     
     /// show alert with OK and cancel button
+    public static func showWithOkCancelDestructive(controller: UIViewController, title: String, message: String, handler: ((UIAlertAction) -> Void)?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: handler))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        controller.present(alert, animated: true, completion: nil)
+    }
+    
+    /// show alert with OK and cancel button
     public static func showWithOkCancel(controller: UIViewController, title: String, message: String, handler: ((UIAlertAction) -> Void)?){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: handler))
