@@ -186,6 +186,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     DataManager.uploadTable(controller: self) {
                         DataManager.uploadedData.append(row)
                         self.amountText.text = ""
+                        self.commentText.text = ""
                         AlertManager.showWithOK(controller: self, title: "登錄成功！", message: "會記帳的小環環最棒了😍")
                     }
                 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MYb-8l-3aV">
-    <device id="retina4_0" orientation="portrait" appearance="dark"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -283,7 +283,7 @@
             <objects>
                 <viewController id="6gu-mJ-slO" customClass="TableViewController" customModule="Accounter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gEZ-Z2-MXL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="KoY-8J-rwq"/>
@@ -298,6 +298,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="DeleteButton" destination="Igz-wh-3L7" id="1ay-Ra-VWL"/>
+                        <outlet property="NavigationBar" destination="LUP-LT-pEo" id="XhY-zX-ISH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnJ-T2-mCb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -405,7 +406,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hKK-gh-uu1"/>
+        <segue reference="q2g-qM-PTZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="DefaultUserPhoto" width="225" height="225"/>
