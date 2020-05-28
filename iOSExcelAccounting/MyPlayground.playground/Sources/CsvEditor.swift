@@ -13,6 +13,7 @@ public class CsvEditor{
     public enum error : Error {
         case InvalidUrl
         case InvalidEncoding
+        case InvalidFormatting
     }
     
     public var content : String = ""
@@ -40,7 +41,26 @@ public class CsvEditor{
         }
         self.content = content
         /// TODO: what if csv file is broken?
-        self.table = content.components(separatedBy: "\r\n").map{$0.components(separatedBy: ",").map{$0.trimmingCharacters(in: .whitespacesAndNewlines)}}
+        self.table = content.components(separatedBy: "\r\n")
+                .map{$0.components(separatedBy: ",")
+                .map{$0.trimmingCharacters(in: .whitespacesAndNewlines)}}
+        removeTrailingLines()
+        guard CheckTable() == true else {
+            throw error.InvalidFormatting
+        }
+    }
+    
+    private func CheckTable() -> Bool{
+        let count = self.table[0].count
+        return self.table.map{$0.count}.allSatisfy{$0 == count}
+    }
+    
+    private func removeTrailingLines(){
+        for (i, row) in self.table.enumerated() {
+            if row.count == 1 {
+                self.table.remove(at: i)
+            }
+        }
     }
     
     public func getColumns(i:Int) -> [String]{
