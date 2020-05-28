@@ -77,8 +77,9 @@ class TableViewController: UIViewController, ViewControllerWithSpinner, SwiftDat
     fileprivate func makeOptions() -> DataTableConfiguration{
         var options = DataTableConfiguration()
         options.defaultOrdering = DataTableColumnOrder(index: 0, order: .descending)
-        options.shouldSectionFootersFloat = false
         options.shouldShowSearchSection = false
+        options.shouldShowFooter = false
+        options.shouldSectionHeadersFloat = true
         return options
     }
     
