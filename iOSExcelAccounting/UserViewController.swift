@@ -26,23 +26,37 @@ class UserViewController: UIViewController, ViewControllerWithSpinner {
         connect(self)
     }
     
+    
+    
+    fileprivate func DisplayUserInfo() {
+        // if not successful, just stay here
+        // display user information
+        GraphManager.instance.getMe { (user, error) in
+            guard let user = user, error == nil else {
+                AlertManager.showWithOK(controller: self, title: "使用者資訊擷取失敗", message: "錯誤訊息： \(error.debugDescription)")
+                return
+            }
+            self.userName.text = user.displayName ?? "No user name available"
+            self.userEmail.text = user.mail ?? user.userPrincipalName ?? "No email address available"
+        }
+    }
+    
     @IBAction func connect(_ sender: Any) {
         DataManager.getList(controller: self) { (error) in
             guard error == nil else {
-                // if not successful, just stay here
-                // display user information
-                GraphManager.instance.getMe { (user, error) in
-                    guard let user = user, error == nil else {
-                        AlertManager.showWithOK(controller: self, title: "使用者資訊擷取失敗", message: "錯誤訊息： \(error.debugDescription)")
-                        return
-                    }
-                    self.userName.text = user.displayName ?? "No user name available"
-                    self.userEmail.text = user.mail ?? user.userPrincipalName ?? "No email address available"
-                }
+                self.DisplayUserInfo()
                 return
             }
             // if get data successfully
-            self.performSegue(withIdentifier: "gotData", sender: self)
+            DataManager.getTable(controller: self) { (error) in
+                guard error == nil else {
+                    // if not successful, just stay here
+                    self.DisplayUserInfo()
+                    return
+                }
+                // if get data successfully
+                self.performSegue(withIdentifier: "gotData", sender: self)
+            }
         }
     }
     
