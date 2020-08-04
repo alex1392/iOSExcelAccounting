@@ -26,6 +26,10 @@ public class DataManager {
     public static var comsumeCategories : [String] = []
     public static var headers : [String] = []
     public static var uploadedData : [[String]] = []
+    
+    public static var balance_index : Int = -1
+    public static var id_index : Int = -1
+    public static var amount_index : Int = -1
 
     public static func getList(controller: ViewControllerWithSpinner, completion: @escaping(Error?) -> Void) {
         controller.spinner.start(container: controller) // start spinner
@@ -65,7 +69,7 @@ public class DataManager {
         })
     }
     
-    public static func getTable(controller: ViewControllerWithSpinner, completion: @escaping(Error?) -> Void) {
+    public static func getTable(controller: ViewControllerWithSpinner, completion: @escaping(Error?) -> Void) { 
             controller.spinner.start(container: controller) // start spinner
             // Search for the excel file
             GraphManager.instance.searchDrive(query: "Alex", selects: [.id, .name, .downloadUrl], completion: {
@@ -95,7 +99,21 @@ public class DataManager {
                 }
                 // get headers
                 headers = csvTable.table.removeFirst()
-
+                guard let balance_index = DataManager.headers.firstIndex(of: "餘額") else {
+                    AlertManager.showWithOK(controller: controller, title: "記帳表CSV文件餘額無法解析", message: "請檢查記帳表餘額欄位標題是否存在")
+                    return
+                }
+                self.balance_index = balance_index
+                guard let id_index = DataManager.headers.firstIndex(of: "ID") else {
+                    AlertManager.showWithOK(controller: controller, title: "記帳表CSV文件ID無法解析", message: "請檢查記帳表ID欄位標題是否存在")
+                    return
+                }
+                self.id_index = id_index
+                guard let amount_index = DataManager.headers.firstIndex(of: "金額") else {
+                    AlertManager.showWithOK(controller: controller, title: "記帳表CSV文件金額無法解析", message: "請檢查記帳表金額欄位標題是否存在")
+                    return
+                }
+                self.amount_index = amount_index   
                 controller.spinner.stop()
                 completion(nil)
             })

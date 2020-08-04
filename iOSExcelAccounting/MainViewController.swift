@@ -136,13 +136,9 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let amount = String(format: "%.2f", amount_double)
             let cost = String(format: "%.2f", -amount_double)
             /// CHECK with the file
-            guard let balance_index = DataManager.headers.firstIndex(of: "餘額") else {
-                AlertManager.showWithOK(controller: self, title: "記帳表CSV文件餘額無法解析", message: "請檢查記帳表餘額欄位標題是否存在")
-                return
-            }
-            guard let balance_last = Double(DataManager.csvTable.table[0][balance_index].trimmingCharacters(in: .whitespaces).trimmingCharacters(in: CharacterSet(charactersIn: "£"))) else{
-                AlertManager.showWithOK(controller: self, title: "記帳表CSV文件餘額無法解析", message: "請檢查記帳表餘額欄位數字格式正確")
-                return
+            guard let balance_last = Double(DataManager.csvTable.table[0][DataManager.balance_index].trimmingCharacters(in: .whitespaces).trimmingCharacters(in: CharacterSet(charactersIn: "£"))) else{
+                    AlertManager.showWithOK(controller: self, title: "記帳表CSV文件餘額無法解析", message: "請檢查記帳表餘額欄位數字格式正確")
+                    return
             }
             let balance = String(format: "%.2f", balance_last + amount_double)
             let comment = self.commentText.text ?? ""
@@ -171,11 +167,8 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     guard error == nil else { return }
                     // TODO: lock the file?
                     // get user inputs
-                    guard let id_index = DataManager.headers.firstIndex(of: "ID") else {
-                        AlertManager.showWithOK(controller: self, title: "記帳表CSV文件ID無法解析", message: "請檢查記帳表ID欄位標題是否存在")
-                        return
-                    }
-                    guard let id_last = Int(DataManager.csvTable.table[0][id_index].trimmingCharacters(in: .whitespacesAndNewlines)) else {
+                    
+                    guard let id_last = Int(DataManager.csvTable.table[0][DataManager.id_index].trimmingCharacters(in: .whitespacesAndNewlines)) else {
                         AlertManager.showWithOK(controller: self, title: "記帳表CSV文件ID無法解析", message: "請檢查記帳表ID欄位數字格式正確")
                         return
                     }

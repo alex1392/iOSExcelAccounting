@@ -51,6 +51,7 @@ class TableViewController: UIViewController, ViewControllerWithSpinner, SwiftDat
                     DataManager.getTable(controller: self) { (error) in
                         guard error == nil else { return }
                         DataManager.csvTable.table.removeAll { $0[0] == id }
+                        self.updateBalance(fromID: id)
                         DataManager.uploadTable(controller: self) {
                             DataManager.uploadedData.remove(at: index)
                             self.getFormattedData()
@@ -63,6 +64,39 @@ class TableViewController: UIViewController, ViewControllerWithSpinner, SwiftDat
         }
         alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func updateBalance(fromID fromIDStr: String){
+        var baseId = 0
+        guard let fromID = Int(fromIDStr.trimmingCharacters(in: .whitespacesAndNewlines)) else {
+            AlertManager.showWithOK(controller: self, title: "記帳表CSV文件ID無法解析", message: "請檢查記帳表ID欄位數字格式正確")
+            return
+        }
+        while true{
+            guard let id = Int(DataManager.csvTable.table[baseId][DataManager.id_index].trimmingCharacters(in: .whitespacesAndNewlines)) else {
+                AlertManager.showWithOK(controller: self, title: "記帳表CSV文件ID無法解析", message: "請檢查記帳表ID欄位數字格式正確")
+                return
+            }
+            if id < fromID {
+                break
+            }
+            baseId += 1
+        }
+        guard let baseBalance = Double(DataManager.csvTable.table[baseId][DataManager.balance_index].trimmingCharacters(in: .whitespacesAndNewlines).trimmingCharacters(in: CharacterSet(charactersIn: "£"))) else{
+                AlertManager.showWithOK(controller: self, title: "記帳表CSV文件餘額無法解析", message: "請檢查記帳表餘額欄位數字格式正確")
+                return
+        }
+        var id = baseId - 1
+        var balance = baseBalance
+        while id >= 0{
+            guard let amount = Double(DataManager.csvTable.table[id][DataManager.amount_index].trimmingCharacters(in: .whitespaces).trimmingCharacters(in: CharacterSet(charactersIn: "£"))) else {
+                AlertManager.showWithOK(controller: self, title: "記帳表CSV文件金額無法解析", message: "請檢查記帳表金額欄位數字格式正確")
+                return
+            }
+            balance += amount
+            DataManager.csvTable.table[id][DataManager.balance_index] = String(balance)
+            id -= 1
+        }
     }
     
     fileprivate func addConstraint() {
